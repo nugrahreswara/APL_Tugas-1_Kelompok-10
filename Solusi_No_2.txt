@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    float a, b, c, d;
+    float determinan, inversA, inversB, inversC, inversD;
+
+    cout << "=== Program Invers Matriks 2x2 ===" << endl;
+
+    cout << "Masukkan elemen matriks A:" << endl;
+    cout << "Elemen [0][0] (a): "; cin >> a;
+    cout << "Elemen [0][1] (b): "; cin >> b;
+    cout << "Elemen [1][0] (c): "; cin >> c;
+    cout << "Elemen [1][1] (d): "; cin >> d;
+
+    cout << "\nMatriks Sebelum Invers:" << endl;
+    cout << "[ " << a << "  " << b << " ]" << endl;
+    cout << "[ " << c << "  " << d << " ]" << endl;
+    determinan = (a * d) - (b * c);
+
+    if (determinan == 0) {
+        cout << "\nDeterminan nol! Matriks tidak memiliki invers." << endl;
+    } else {
+        inversA = d / determinan;
+        inversB = -b / determinan;
+        inversC = -c / determinan;
+        inversD = a / determinan;
+        cout << "\nMatriks Sesudah Invers (Determinan: " << determinan << "):" << endl;
+        cout << "[ " << inversA << "  " << inversB << " ]" << endl;
+        cout << "[ " << inversC << "  " << inversD << " ]" << endl;
+    }
+
+    return 0;
+} 

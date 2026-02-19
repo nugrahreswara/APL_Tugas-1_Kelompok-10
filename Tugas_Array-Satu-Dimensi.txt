@@ -1,0 +1,33 @@
+from InquirerPy import inquirer
+
+menu_barang = [
+    {"name": "Indomie", "price": 3000},
+    {"name": "Aqua", "price": 5000},
+    {"name": "Sosis", "price": 7000},
+    {"name": "Roti", "price": 4000},
+    {"name": "Permen", "price": 500}
+]
+
+choices = [
+    {"name": f"{item['name']} - Rp{item['price']}", "value": item} 
+    for item in menu_barang
+]
+
+pilihan = inquirer.checkbox(
+    message="Pilih barang (Spasi untuk pilih, Enter untuk selesai):",
+    choices=choices,
+).execute()
+
+total = 0
+print("\n=== Struk Belanja ===")
+
+if not pilihan:
+    print("Tidak ada barang yang dipilih.")
+else:
+    for barang in pilihan:
+        print(f"- {barang['name']} : Rp{barang['price']}")
+        total += barang['price']
+
+    print("-" * 20)
+    print(f"Total belanja: Rp {total}")
+    print("Terima kasih sudah berbelanja!")

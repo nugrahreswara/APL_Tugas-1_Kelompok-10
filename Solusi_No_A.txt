@@ -1,0 +1,57 @@
+#include <iostream>
+using namespace std;
+
+void cekSegitiga(int *s1, int *s2, int *s3) {
+    int *maxS = s1;
+    int a = *s2, b = *s3;
+
+    if (*s2 > *maxS) { 
+        maxS = s2; 
+        a = *s1; 
+        b = *s3; 
+    }
+    if (*s3 > *maxS) { 
+        maxS = s3; 
+        a = *s1; 
+        b = *s2; 
+    }
+
+    cout << "\n--- Hasil Analisis ---" << endl;
+
+    if (a + b <= *maxS) {
+        cout << "Hasil: Tidak bisa membentuk segitiga." << endl;
+        cout << "Alasan: Jumlah dua sisi terpendek (" << a+b << ") tidak lebih besar dari sisi terpanjang (" << *maxS << ")." << endl;
+        return;
+    }
+
+    cout << "Hasil: Bisa membentuk segitiga." << endl;
+
+    if (*s1 == *s2 && *s2 == *s3) {
+        cout << "Jenis: Segitiga Sama Sisi" << endl;
+    } 
+    else if ((a*a) + (b*b) == (*maxS * *maxS)) {
+        cout << "Jenis: Segitiga Siku-Siku" << endl;
+    } 
+    else if (*s1 == *s2 || *s2 == *s3 || *s1 == *s3) {
+        cout << "Jenis: Segitiga Sama Kaki" << endl;
+    } 
+    else {
+        cout << "Jenis: Segitiga Sembarang" << endl;
+    }
+}
+
+int main() {
+    int sisi1, sisi2, sisi3;
+
+    cout << "=== Program Pengecek Segitiga ===" << endl;
+    cout << "Masukkan panjang sisi 1: ";
+    cin >> sisi1;
+    cout << "Masukkan panjang sisi 2: ";
+    cin >> sisi2;
+    cout << "Masukkan panjang sisi 3: ";
+    cin >> sisi3;
+
+    cekSegitiga(&sisi1, &sisi2, &sisi3);
+
+    return 0;
+}

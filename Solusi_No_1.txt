@@ -1,0 +1,56 @@
+#include <iostream>
+#include <limits>  // Untuk menggunakan nilai inisialisasi min/max
+
+using namespace std;
+
+int main() {
+    int baris, kolom;
+
+    cout << "=== Program Statistik Matriks ===" << endl;
+    cout << "Masukkan jumlah baris: ";
+    cin >> baris;
+    cout << "Masukkan jumlah kolom: ";
+    cin >> kolom;
+
+    int matriks[baris][kolom];
+    double total = 0;
+
+    // Input elemen matriks
+    cout << "\nMasukkan elemen matriks:" << endl;
+    for (int i = 0; i < baris; i++) {
+        for (int j = 0; j < kolom; j++) {
+            cout << "Matriks[" << i << "][" << j << "]: ";
+            cin >> matriks[i][j];
+        }
+    }
+
+    // Inisialisasi min dan max dengan elemen pertama matriks
+    int maxVal = matriks[0][0];
+    int minVal = matriks[0][0];
+
+    // Proses pencarian min, max, dan total (untuk rata-rata)
+    for (int i = 0; i < baris; i++) {
+        for (int j = 0; j < kolom; j++) {
+            // Cek Maksimum
+            if (matriks[i][j] > maxVal) {
+                maxVal = matriks[i][j];
+            }
+            // Cek Minimum
+            if (matriks[i][j] < minVal) {
+                minVal = matriks[i][j];
+            }
+            // Tambahkan ke total
+            total += matriks[i][j];
+        }
+    }
+
+    double rataRata = total / (baris * kolom);
+
+    // Menampilkan Hasil
+    cout << "\n--- Hasil Analisis ---" << endl;
+    cout << "Nilai Maksimum : " << maxVal << endl;
+    cout << "Nilai Minimum  : " << minVal << endl;
+    cout << "Rata-rata      : " << rataRata << endl;
+
+    return 0;
+}

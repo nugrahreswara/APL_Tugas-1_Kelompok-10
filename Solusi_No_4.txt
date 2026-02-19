@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int mhs1, mhs2;
+    int *p1, *p2;
+
+    cout << "Masukkan nilai mahasiswa 1: ";
+    cin >> mhs1;
+    cout << "Masukkan nilai mahasiswa 2: ";
+    cin >> mhs2;
+
+    p1 = &mhs1;
+    p2 = &mhs2;
+
+    cout << "\nNilai mahasiswa 1 (via pointer): " << p1 << endl;
+    cout << "Nilai mahasiswa 2 (via pointer): " <<p2 << endl;
+
+    cout << "Jumlah kedua nilai: " << (*p1 + *p2) << endl;
+
+    return 0;
+}

@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cmath>
+#include <algorithm>
+
+using namespace std;
+
+void cekpythagoras(int a, int b, int c){
+    int sisi[3] = {a, b ,c};
+    sort(sisi, sisi + 3);
+
+    long s1 = sisi[0];
+    long s2 = sisi[1];
+    long s3 = sisi[2];
+
+    cout << "\n === Hasil analisa ===" << endl;
+    cout << "Urutan sisi: " << s1 << ", " << s2 << ", " << s3 << endl;
+
+    if ((s1 * s1) + (s2 * s2) == (s3 * s3)){
+        cout << "Hasil: " << s1 << "^2 +" << s2 << "^2 =" << s3 << "^2" << endl;
+        cout << "kesimpulan : Hasil menunjukkan bilangan adalah triple pytagoras" << endl;
+    } else{
+        cout << "Hasil: " << (s1 * s1) + (s2 * s2) << " Tidak sama dengan " << (s3 * s3) << endl;
+        cout << "kesimpulan: bukan triple pythagoras" << endl;
+    }
+}
+
+int main(){
+    int a, b, c;
+
+    cout << "=== Pengecekan triple pytagoras oleh admin" << endl;
+
+    cout << "masukkan bilangan pertama (a): "; cin >> a;
+    cout << "masukkan bilangan kedua (b): "; cin >> b;
+    cout << "masukkan bilangan ketiga (c): "; cin >> c;
+
+    cekpythagoras(a, b, c);
+
+    return 0;
+}

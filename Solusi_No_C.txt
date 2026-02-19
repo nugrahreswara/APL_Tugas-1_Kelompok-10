@@ -1,0 +1,24 @@
+#include <iostream>
+using namespace std;
+
+// Fungsi rekursif untuk pangkat
+int pangkat(int bilangan, int eksponen) {
+    if (eksponen == 0) {
+        return 1; // basis rekursi
+    } else {
+        return bilangan * pangkat(bilangan, eksponen - 1);
+    }
+}
+
+int main() {
+    int bilangan, pangkatBil;
+    cout << "Masukkan bilangan: ";
+    cin >> bilangan;
+    cout << "Masukkan pangkat: ";
+    cin >> pangkatBil;
+
+    int hasil = pangkat(bilangan, pangkatBil);
+    cout << "Hasil: " << bilangan << "^" << pangkatBil << " = " << hasil << endl;
+
+    return 0;
+}
